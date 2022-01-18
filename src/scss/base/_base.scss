@@ -1,0 +1,42 @@
+:root {
+	font-size: $base-unit;
+}
+
+* {
+	&,
+	&:before,
+	&:after {
+		box-sizing: inherit;
+	}
+}
+
+html {
+	height: 100%;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: $font-family-base;
+	font-size: $font-size-base;
+	line-height: $line-height-base;
+	color: $font-color-base;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+body {
+	height: 100%;
+	width: 100%;
+	transition: all linear $transition-time-fast;
+}
+
+a {
+	color: $font-color-base;
+	text-decoration: none;
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+	cursor: pointer;
+
+	&:hover {
+		color: $font-color-base;
+		text-decoration: none;
+	}
+}

@@ -1,0 +1,15 @@
+$color-primary: #5BC8AC;
+$color-secondary: #E6D72A;
+$color-neutral-gray: #6b6768;
+$color-neutral-black: #242424;
+$color-neutral-white: #ffffff;
+
+$color-app-background: $color-neutral-white;
+
+$colors: (
+	color-primary: $color-primary,
+	color-secondary: $color-secondary,
+	color-neutral-gray: $color-neutral-gray,
+	color-neutral-black: $color-neutral-black,
+	color-neutral-white: $color-neutral-white
+);

@@ -1,0 +1,41 @@
+// Arvo bold
+@font-face { 
+	font-family: 'Arvo';
+	src: url('./../../assets/fonts/Arvo/bold/arvo-bold.eot');
+	src: url('./../../assets/fonts/Arvo/bold/arvo-bold.eot?#iefix') format('embedded-opentype'),
+				url('./../../assets/fonts/Arvo/bold/arvo-bold.woff2') format('woff2'),
+				url('./../../assets/fonts/Arvo/bold/arvo-bold.woff') format('woff'),
+				url('./../../assets/fonts/Arvo/bold/arvo-bold.ttf') format('truetype'),
+				url('./../../assets/fonts/Arvo/bold/arvo-bold.svg#arvobold') format('svg');
+	font-weight: 600;
+	font-style: normal;
+	font-display: fallback;
+}
+
+// WorkSans regular
+@font-face { 
+	font-family: 'WorkSans';
+	src: url('./../../assets/fonts/WorkSans/regular/WorkSans-Regular.eot');
+	src: url('./../../assets/fonts/WorkSans/regular/WorkSans-Regular.eot?#iefix') format('embedded-opentype'),
+				url('./../../assets/fonts/WorkSans/regular/WorkSans-Regular.woff2') format('woff2'),
+				url('./../../assets/fonts/WorkSans/regular/WorkSans-Regular.woff') format('woff'),
+				url('./../../assets/fonts/WorkSans/regular/WorkSans-Regular.ttf') format('truetype'),
+				url('./../../assets/fonts/WorkSans/regular/WorkSans-Regular.svg#WorkSans-Regular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+	font-display: fallback;
+}
+
+// WorkSans light
+@font-face { 
+	font-family: 'WorkSans';
+	src: url('./../../assets/fonts/WorkSans/light/WorkSans-Light.eot');
+	src: url('./../../assets/fonts/WorkSans/light/WorkSans-Light.eot?#iefix') format('embedded-opentype'),
+				url('./../../assets/fonts/WorkSans/light/WorkSans-Light.woff2') format('woff2'),
+				url('./../../assets/fonts/WorkSans/light/WorkSans-Light.woff') format('woff'),
+				url('./../../assets/fonts/WorkSans/light/WorkSans-Light.ttf') format('truetype'),
+				url('./../../assets/fonts/WorkSans/light/WorkSans-Light.svg#WorkSans-Light') format('svg');
+	font-weight: 300;
+	font-style: normal;
+	font-display: fallback;
+}

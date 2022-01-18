@@ -1,0 +1,54 @@
+.headline {
+	&-1 {
+		font-family: $font-arvo;
+		font-weight: $headline-font-weight;
+		font-size: $headline-1-font-size;
+		line-height: $headline-1-line-height;
+	}
+
+  &-2 {
+		font-family: $font-arvo;
+		font-weight: $headline-font-weight;
+		font-size: $headline-2-font-size;
+		line-height: $headline-2-line-height;
+	}
+}
+
+.paragraph {
+	&-basic {
+		font-family: $font-work-sans;
+		font-weight: $paragraph-font-weight;
+		font-size: $paragraph-basic-font-size;
+		line-height: $paragraph-basic-line-height;
+	}
+}
+
+.link {
+	font-family: $font-work-sans;
+	font-weight: $paragraph-font-weight;
+	font-size: $link-font-size;
+	line-height: $link-line-height;
+	text-decoration: $link-line-text-decoration;
+	cursor: pointer;
+}
+
+h1 {
+	@extend .headline-1;
+}
+
+h2, h3, h4, h5 {
+	@extend .headline-2;
+}
+
+p,
+span {
+	@extend .paragraph-basic;
+}
+
+a {
+	@extend .link;
+}
+
+.is-bold {
+  font-weight: bold;
+}
