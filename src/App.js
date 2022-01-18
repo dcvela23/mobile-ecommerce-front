@@ -1,13 +1,13 @@
 const App = () => {
   return (
-    <div className="App">
-      <p className="paragraph-basic color-primary">header</p>
-      <div className="grid">
-        <div className="grid-col-4">
-          <p>Left side</p>
+    <main className="main main-layout">
+      <div className="main-wrapper">
+        <div className="section">
+          <h1 class="mb-2">Heading1</h1>
+          <p class="mb-2">Paragraph</p>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
