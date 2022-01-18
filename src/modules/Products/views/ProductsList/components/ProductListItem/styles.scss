@@ -1,0 +1,35 @@
+@import "./../../../../../../scss/vars/index.scss";
+
+.product-item {
+  box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+  padding: 1rem 2rem;
+  position: relative;
+
+  &_image {
+    object-fit: initial;
+    position: relative;
+    padding-bottom: 65%;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &_name {
+    color: $color-primary;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &_price {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    background-color: $color-secondary;
+  }
+}

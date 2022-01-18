@@ -14,7 +14,7 @@ const App = () => {
       <Fragment>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Products />} />
+            <Route path="*" element={<Products />} />
           </Routes>
         </BrowserRouter>
       </Fragment>
