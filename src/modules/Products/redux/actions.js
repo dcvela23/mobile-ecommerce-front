@@ -1,8 +1,12 @@
 import { 
   GET_PRODUCTS_SUCCESS,
-  GET_PRODUCTS_FAIL
+  GET_PRODUCTS_FAIL,
+  GET_PRODUCT_SUCCESS,
+  GET_PRODUCT_FAIL
 } from "./types";
 import { getProducts } from "./../services/getProducts";
+import { getProduct } from "./../services/getProduct";
+import { postProductToCart } from "./../services/postProductToCart";
 
 export const fetchProducts = () => async dispatch => {
   try {
@@ -15,5 +19,26 @@ export const fetchProducts = () => async dispatch => {
     dispatch({
       type: GET_PRODUCTS_FAIL
     });
+  }
+};
+
+export const fetchProduct = (productId) => async dispatch => {
+  try {
+    const res = await getProduct(productId);
+    dispatch({
+      type: GET_PRODUCT_SUCCESS,
+      payload: res.data
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_PRODUCT_FAIL
+    });
+  }
+};
+
+export const addProductToCart = (productData) => async dispatch => {
+  try {
+    const res = await postProductToCart(productData);
+  } catch (error) {
   }
 };

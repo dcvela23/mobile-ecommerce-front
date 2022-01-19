@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { 
   fetchProducts
 } from "./../../redux/actions";
+import { Link } from 'react-router-dom';
 import ProductListItem from './components/ProductListItem';
 import ProductListSearch from './components/ProductSearch';
 import "./styles.scss";
@@ -13,13 +14,13 @@ const ProductsList = ( {
   products
 }) => {
   useEffect(() => {
-    if (!products.items.length) { fetchProducts(); }
+    if (!products.items?.length) { fetchProducts(); }
     setDisplayedProducts(products.items);
   }, [fetchProducts, products]);
 
   const [displayedProducts, setDisplayedProducts] = useState([]);
   const handleSearchChange = (searchValue) => {
-    const valueTolowerCase = searchValue.toLowerCase()
+    const valueTolowerCase = searchValue.toLowerCase();
     const filteredValues = products.items.filter((product) => {
       return product.model.toLowerCase().includes(valueTolowerCase) || product.brand.toLowerCase().includes(valueTolowerCase);
     });
@@ -33,16 +34,18 @@ const ProductsList = ( {
         <ProductListSearch onSearchChange={handleSearchChange}/>
       </div>
       <ul className="grid products-list_wrapper">
-      { displayedProducts.map((product, index) => {
+      { displayedProducts?.length > 0 && displayedProducts.map((product, index) => {
         return (
           <li key={index} className="grid-col-3">
-            <ProductListItem 
-              id={product.id}
-              model={product.model}
-              brand={product.brand}
-              imgUrl={product.imgUrl}
-              price={product.price}
-            />
+             <Link to={`/product/${product.id}`}>
+                <ProductListItem 
+                  id={product.id}
+                  model={product.model}
+                  brand={product.brand}
+                  imgUrl={product.imgUrl}
+                  price={product.price}
+                />
+              </Link>
           </li>
         );
       })}

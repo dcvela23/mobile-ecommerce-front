@@ -1,10 +1,13 @@
 import { 
   GET_PRODUCTS_SUCCESS,
-  GET_PRODUCTS_FAIL
+  GET_PRODUCTS_FAIL,
+  GET_PRODUCT_SUCCESS,
+  GET_PRODUCT_FAIL
 } from "./types";
 
 const initialState = {
-  items: []
+  items: [],
+  detail: {}
 };
 
 export default function(state = initialState, action) {
@@ -20,6 +23,16 @@ export default function(state = initialState, action) {
       return {
         items: []
       };
+
+    case GET_PRODUCT_SUCCESS:
+      return {
+        detail: payload,
+      };
+  
+    case GET_PRODUCT_FAIL:
+      return {
+        detail: {}
+      };  
   
     default: 
       return state;
