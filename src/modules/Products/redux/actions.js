@@ -6,7 +6,6 @@ import {
 } from "./types";
 import { getProducts } from "./../services/getProducts";
 import { getProduct } from "./../services/getProduct";
-import { postProductToCart } from "./../services/postProductToCart";
 
 export const fetchProducts = () => async dispatch => {
   try {
@@ -33,12 +32,5 @@ export const fetchProduct = (productId) => async dispatch => {
     dispatch({
       type: GET_PRODUCT_FAIL
     });
-  }
-};
-
-export const addProductToCart = (productData) => async dispatch => {
-  try {
-    const res = await postProductToCart(productData);
-  } catch (error) {
   }
 };

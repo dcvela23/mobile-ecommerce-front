@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { 
-  fetchProduct,
-  addProductToCart
-} from "./../../redux/actions";
+import { fetchProduct } from "./../../redux/actions";
+import { addProductToCart } from "./../../../Cart/redux/actions";
 import "./styles.scss";
 import { useParams } from "react-router-dom";
 import ProductDetailImage from "./components/ProductDetailImage";

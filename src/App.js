@@ -7,12 +7,15 @@ import {
   Route
 } from "react-router-dom";
 import Products from "./modules/Products";
+import Navbar from "./components/Navbar"
 
 const App = () => {
   return (
     <Provider store={store}>
       <Fragment>
         <BrowserRouter>
+          <Navbar />
+
           <Routes>
             <Route path="*" element={<Products />} />
           </Routes>
