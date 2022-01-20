@@ -5,12 +5,15 @@
   height: 6rem;
   top: 0;
   left: 0;
+  width: 100vw;
   z-index: 500;
   background-color: $color-primary;
   box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
   
   .nav_bar {
     width: 100vw;
+    max-width: 125rem;
+    margin: 0 auto;
     padding: 1.5rem 3rem;
     display: flex;
     justify-content: space-between;
