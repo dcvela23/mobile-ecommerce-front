@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import ProductDetailImage from "./components/ProductDetailImage";
 import ProductDetailDescription from "./components/ProductDetailDescription";
 import ProductDetailActions from "./components/ProductDetailActions";
+import Loader from "./../../../../components/Loader";
 import { GET_PRODUCT_SUCCESS } from "./../../redux/types";
 import { getStorageProductDetailList } from "./../../../../infra/settings";
 import store from "./../../../../redux/store";
@@ -16,8 +17,9 @@ const ProductsDetail = ({
   addProductToCart,
   products
 }) => {
-  // Get product detail
+  const [loaderIsVisible, setLoaderIsVisible] = useState(true);
   const { productId } = useParams();
+
   useEffect(() => {
     if (!products.detail?.id) {
       const storageProductDetailList = getStorageProductDetailList();
@@ -30,8 +32,10 @@ const ProductsDetail = ({
       } else {
         fetchProduct(productId); 
       }
-    } 
-    else { handleFormDataOnLoad(); }
+    } else { 
+      handleFormDataOnLoad(); 
+      setTimeout(() => { setLoaderIsVisible(false);}, 100);
+    }
   }, [fetchProduct, products, productId ]);
 
   // Cart
@@ -95,34 +99,35 @@ const ProductsDetail = ({
 
   return (
     <section className="section product-detail">
-        {
-          products.detail && (
-            <div className="product-detail_wrapper">
-              <div>
-                <ProductDetailImage url={products.detail.imgUrl} alt={products.detail.model}/>
-              </div>
-              <div>
-                <div className="product-detail_data">
-                  <h1 className="mb-5">{products.detail?.model}</h1>
-                  <div>
-                    {
-                      products.detail.id && (
-                        <>
-                          <ProductDetailDescription productData={products.detail} />
-                          <ProductDetailActions
-                            cartIsDisabled={cartIsDisabled}
-                            productData={products.detail} 
-                            onInputChange={handleInputChange}
-                            onCartButtonClick={handleCartButtonClick}/>    
-                        </>
-                      )
-                    }
-                  </div>
+      <Loader isVisible={loaderIsVisible}/>
+      {
+        products.detail && (
+          <div className="product-detail_wrapper">
+            <div>
+              <ProductDetailImage url={products.detail.imgUrl} alt={products.detail.model}/>
+            </div>
+            <div>
+              <div className="product-detail_data">
+                <h1 className="mb-5">{products.detail?.model}</h1>
+                <div>
+                  {
+                    products.detail.id && (
+                      <>
+                        <ProductDetailDescription productData={products.detail} />
+                        <ProductDetailActions
+                          cartIsDisabled={cartIsDisabled}
+                          productData={products.detail} 
+                          onInputChange={handleInputChange}
+                          onCartButtonClick={handleCartButtonClick}/>    
+                      </>
+                    )
+                  }
                 </div>
               </div>
             </div>
-          )
-        }
+          </div>
+        )
+      }
     </section>
   );
 };

@@ -7,6 +7,7 @@ import {
 import { Link } from 'react-router-dom';
 import ProductListItem from './components/ProductListItem';
 import ProductListSearch from './components/ProductSearch';
+import Loader from "./../../../../components/Loader";
 import { GET_PRODUCTS_SUCCESS } from "./../../redux/types";
 import { getStorageProductList } from "./../../../../infra/settings";
 import store from "./../../../../redux/store";
@@ -16,6 +17,8 @@ const ProductsList = ( {
   fetchProducts,
   products
 }) => {
+  const [loaderIsVisible, setLoaderIsVisible] = useState(true);
+
   useEffect(() => {
     if (!products.items?.length) { 
       const storageProductList = getStorageProductList();
@@ -28,8 +31,10 @@ const ProductsList = ( {
       } else {
         fetchProducts(); 
       }
+    } else {
+      setDisplayedProducts(products.items);
+      setTimeout(() => { setLoaderIsVisible(false);}, 100);
     }
-    setDisplayedProducts(products.items);
   }, [fetchProducts, products]);
 
   const [displayedProducts, setDisplayedProducts] = useState([]);
@@ -43,6 +48,7 @@ const ProductsList = ( {
   
   return (
     <section className="section products-list">
+      <Loader isVisible={loaderIsVisible}/>
       <h1 className="mb-5 color-primary">Catálogo de móviles</h1>
       <div className="mb-5 text-right">
         <ProductListSearch onSearchChange={handleSearchChange}/>
