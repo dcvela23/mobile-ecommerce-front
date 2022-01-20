@@ -7,6 +7,9 @@ import {
 import { Link } from 'react-router-dom';
 import ProductListItem from './components/ProductListItem';
 import ProductListSearch from './components/ProductSearch';
+import { GET_PRODUCTS_SUCCESS } from "./../../redux/types";
+import { getStorageProductList } from "./../../../../infra/settings";
+import store from "./../../../../redux/store";
 import "./styles.scss";
 
 const ProductsList = ( {
@@ -14,7 +17,18 @@ const ProductsList = ( {
   products
 }) => {
   useEffect(() => {
-    if (!products.items?.length) { fetchProducts(); }
+    if (!products.items?.length) { 
+      const storageProductList = getStorageProductList();
+
+      if (storageProductList) {
+        store.dispatch({
+          type: GET_PRODUCTS_SUCCESS,
+          payload: storageProductList
+        });      
+      } else {
+        fetchProducts(); 
+      }
+    }
     setDisplayedProducts(products.items);
   }, [fetchProducts, products]);
 

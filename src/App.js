@@ -7,21 +7,21 @@ import {
   Route
 } from "react-router-dom";
 import Products from "./modules/Products";
-import Navbar from "./components/Navbar"
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <Fragment>
-        <BrowserRouter>
-          <Navbar />
+    <BrowserRouter>
+      <Provider store={store}>
+        <Navbar />
+          <Fragment>
+            <Routes>
+              <Route path="*" element={<Products />} />
+            </Routes>
+        </Fragment>
+      </Provider>
+    </BrowserRouter>
 
-          <Routes>
-            <Route path="*" element={<Products />} />
-          </Routes>
-        </BrowserRouter>
-      </Fragment>
-    </Provider>
   );
 };
 

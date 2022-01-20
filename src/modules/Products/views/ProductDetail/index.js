@@ -7,6 +7,9 @@ import { useParams } from "react-router-dom";
 import ProductDetailImage from "./components/ProductDetailImage";
 import ProductDetailDescription from "./components/ProductDetailDescription";
 import ProductDetailActions from "./components/ProductDetailActions";
+import { GET_PRODUCT_SUCCESS } from "./../../redux/types";
+import { getStorageProductDetailList } from "./../../../../infra/settings";
+import store from "./../../../../redux/store";
 
 const ProductsDetail = ({
   fetchProduct,
@@ -16,9 +19,19 @@ const ProductsDetail = ({
   // Get product detail
   const { productId } = useParams();
   useEffect(() => {
-    if (!products.detail?.id) { fetchProduct(productId); } 
+    if (!products.detail?.id) {
+      const storageProductDetailList = getStorageProductDetailList();
+      const productDetail = storageProductDetailList?.filter((product) => product.id === productId);
+      if (productDetail && productDetail[0]) {
+        store.dispatch({
+          type: GET_PRODUCT_SUCCESS,
+          payload: productDetail[0]
+        });      
+      } else {
+        fetchProduct(productId); 
+      }
+    } 
     else { handleFormDataOnLoad(); }
-
   }, [fetchProduct, products, productId ]);
 
   // Cart
