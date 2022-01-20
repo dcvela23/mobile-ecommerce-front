@@ -43,7 +43,7 @@ const ProductsList = ( {
   
   return (
     <section className="section products-list">
-      <h1 className="mb-5">Product List</h1>
+      <h1 className="mb-5 color-primary">Catálogo de móviles</h1>
       <div className="mb-5 text-right">
         <ProductListSearch onSearchChange={handleSearchChange}/>
       </div>

@@ -19,8 +19,8 @@ const ProductDetailDescription = ({ productData }) => {
       { Object.entries(descriptionValues).map((value, index) => {
         return (
           <div key={index} className="mb-2 grid-col-6">
-            <label>{value[0]}</label>
-            <p>{value[1]}</p>
+            <label className="product-detail_decription_label">{value[0]}</label>
+            <p className="product-detail_decription_text">{value[1]}</p>
           </div>
         );
       })}

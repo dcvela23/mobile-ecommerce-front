@@ -1,9 +1,17 @@
 @import "./../../../../../../scss/vars/index.scss";
 
 .product-item {
-  box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
-  padding: 1rem 2rem;
+  padding: 2rem;
   position: relative;
+  transition: all $transition-ease-in-out-cubic $transition-time-fast;
+  border: .083rem solid $color-neutral-gray-3;
+  border-radius: 2px;
+
+  &:hover {
+    transform: translateY(-.25rem);
+    box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+    border-color: $color-neutral-gray;
+  }
 
   &_image {
     object-fit: initial;
@@ -23,13 +31,32 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    margin-top: 2rem;
+    border-top: .083rem solid $color-neutral-gray-3;
+    padding-top: 2rem;
   }
 
+  &_brand {
+    color: $color-neutral-gray;
+  }
+
+
+
   &_price {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 1rem;
-    background-color: $color-secondary;
+    display: flex;
+    align-items: center;
+
+    &_label {
+      font-weight: bold;
+      margin-right: 1rem;
+    }
+
+    &_amount {
+      color: $color-secondary;
+      font-family: $font-arvo;
+      font-weight: $headline-font-weight;
+      font-size: $label-font-size;
+      line-height: $label-line-height;  
+    }
   }
 }

@@ -1,0 +1,25 @@
+@import "./../../../../../../scss/vars/index.scss";
+
+.product-search {
+  display: inline-block;
+  transition: all $transition-ease-in-out-cubic $transition-time-fast;
+  max-width: 25rem;
+  width: 100%;
+
+  &:hover {
+    max-width: 30rem;
+  }
+
+  .form-control {
+    border: .083rem solid $color-primary;
+    max-width: 40rem;
+    width: 100%;
+    display: inline-block;
+    transition: all $transition-ease-in-out-cubic $transition-time-fast;
+    color: $color-secondary;
+    font-family: $font-work-sans;
+    font-weight: $headline-font-weight;
+    font-size: $label-font-size;
+    line-height: $label-line-height;  
+  }
+}

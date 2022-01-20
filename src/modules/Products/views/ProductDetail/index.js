@@ -94,8 +94,7 @@ const ProductsDetail = ({
   }, [productDetailFormData ]);
 
   return (
-    <section className="section products-detail">
-      <h1 className="mb-5">{products.detail?.model}</h1>
+    <section className="section product-detail">
       <ul className="grid products-list_wrapper">
         {
           products.detail && (
@@ -104,19 +103,22 @@ const ProductsDetail = ({
                 <ProductDetailImage url={products.detail.imgUrl} alt={products.detail.model}/>
               </div>
               <div className="grid-col-6">
-                <div>
-                  {
-                    products.detail.id && (
-                      <>
-                        <ProductDetailDescription productData={products.detail} />
-                        <ProductDetailActions
-                          cartIsDisabled={cartIsDisabled}
-                          productData={products.detail} 
-                          onInputChange={handleInputChange}
-                          onCartButtonClick={handleCartButtonClick}/>    
-                      </>
-                    )
-                  }
+                <div className="product-detail_data">
+                  <h1 className="mb-5">{products.detail?.model}</h1>
+                  <div>
+                    {
+                      products.detail.id && (
+                        <>
+                          <ProductDetailDescription productData={products.detail} />
+                          <ProductDetailActions
+                            cartIsDisabled={cartIsDisabled}
+                            productData={products.detail} 
+                            onInputChange={handleInputChange}
+                            onCartButtonClick={handleCartButtonClick}/>    
+                        </>
+                      )
+                    }
+                  </div>
                 </div>
               </div>
             </div>

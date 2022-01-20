@@ -3,7 +3,7 @@ const ProductDetailImage = ({
   alt
 }) => {
   return (
-    <figure className="product-item_image">
+    <figure className="product-detail_image">
       <img src={url} alt={alt} />
     </figure>
   );

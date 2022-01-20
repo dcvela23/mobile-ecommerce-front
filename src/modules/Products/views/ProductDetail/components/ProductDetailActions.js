@@ -27,21 +27,24 @@ const ProductDetailActions = ({ productData, onCartButtonClick, onInputChange, c
       { Object.entries(optionsSelectors).map((entry, index) => {
         return (
           <div key={index} className="mb-4 pr-4 grid-col-6">
-            <div className="mr-4">
-              <label>{entry[1].label}</label>
-              <Select 
-                onChange={(e) => onInputChange({
-                  key: entry[0],
-                  value: e.value
-                })}
-                defaultValue={ entry[1].options.length < 2 ? entry[1].options[0] : null}
-                options={entry[1].options}
-                />
+            <div className="mr-4 product-detail_selector">
+              <label className="product-detail_selector_label">{entry[1].label}</label>
+              <div className="product-detail_selector_input">
+                <Select 
+                  onChange={(e) => onInputChange({
+                    key: entry[0],
+                    value: e.value
+                  })}
+                  defaultValue={ entry[1].options.length < 2 ? entry[1].options[0] : null}
+                  options={entry[1].options}
+                  />
+
+               </div> 
             </div>
           </div>
         );
       })}
-      <div className="grid-col-12 text-center">
+      <div className="grid-col-12 text-center product-detail_button">
         <Button 
           variant="primary" 
           onClick={onCartButtonClick}

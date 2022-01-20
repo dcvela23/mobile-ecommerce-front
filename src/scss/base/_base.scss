@@ -11,8 +11,6 @@
 }
 
 html {
-	height: 100%;
-	width: 100%;
 	box-sizing: border-box;
 	font-family: $font-family-base;
 	font-size: $font-size-base;
@@ -23,8 +21,6 @@ html {
 }
 
 body {
-	height: 100%;
-	width: 100%;
 	transition: all linear $transition-time-fast;
 }
 
