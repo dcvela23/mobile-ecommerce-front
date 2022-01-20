@@ -1,0 +1,33 @@
+@import "./../../scss/vars/index.scss";
+
+.breadcrumbs {
+  margin-bottom: 0;
+  margin-left: 2rem;
+  display: flex;
+  flex: 1;
+
+  &_link {
+    a {
+      display: flex;
+    }
+
+    &_separator {
+      margin-left: 1rem;
+    }
+
+    p {
+      color: $color-neutral-white;
+      font-weight: bold;
+    }
+
+    & + .breadcrumbs_link {
+      margin-left: 1rem;
+    }
+
+    &:last-child {
+      a {
+        pointer-events: none;
+      }
+    }
+  }
+}

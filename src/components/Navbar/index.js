@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { getStorageUserCart } from "./../../infra/settings";
@@ -6,6 +6,8 @@ import { POST_PRODUCT_TO_CART_SUCCESS } from "./../../modules/Cart/redux/types";
 import store from "./../../redux/store";
 import {ReactComponent as Logo} from './assets/logo.svg';
 import {ReactComponent as Cart} from './assets/cart.svg';
+import BreadCrumb from "../Breadcrumb";
+import { useLocation } from 'react-router-dom';
 import "./styles.scss";
 
 const getStorageCartData = () => {
@@ -18,7 +20,34 @@ const getStorageCartData = () => {
 
 getStorageCartData();
 
-export const Navbar = ({ cart }) => {
+export const Navbar = ({ cart, products }) => {
+  const location = useLocation();
+  const [breadcrumbLinks, setBreadcrumbLinks] = useState([]);
+  const handleBreadcrumbLinks = (location) => {
+    if (!location) return [];
+
+    const links = [];
+    const homeData = {
+      path: "/",
+      literal: "Inicio"
+    }; 
+
+    if (location.pathname === "/") {
+      links.push(homeData);
+    } else if (location.pathname.includes("/product/") && products.detail) {
+      links.push(homeData)
+      links.push({
+        path: `/product/${products.detail.id}`,
+        literal: `Detalle ${products.detail.model}`,
+      });
+    }
+    setBreadcrumbLinks(links);
+  };
+
+  useEffect(() => {
+    // runs on location, i.e. route, change
+    handleBreadcrumbLinks(location);
+  }, [location, products]);
 
   return (
     <div className="nav">
@@ -32,6 +61,7 @@ export const Navbar = ({ cart }) => {
             </li>
           </ul>
         </nav>
+        <BreadCrumb links={breadcrumbLinks}/>
 
         <div className="nav_cart">
           { cart.products && (
@@ -49,7 +79,8 @@ export const Navbar = ({ cart }) => {
 };
 
 const mapStateToProps = state => ({
-  cart: state.cart
+  cart: state.cart,
+  products: state.products
 });
 
 export default connect(
