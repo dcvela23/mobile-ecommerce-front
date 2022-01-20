@@ -35,7 +35,7 @@ export const Navbar = ({ cart, products }) => {
     if (location.pathname === "/") {
       links.push(homeData);
     } else if (location.pathname.includes("/product/") && products.detail) {
-      links.push(homeData)
+      links.push(homeData);
       links.push({
         path: `/product/${products.detail.id}`,
         literal: `Detalle ${products.detail.model}`,

@@ -25,7 +25,7 @@ export const fetchProducts = () => async dispatch => {
   }
 };
 
-export const fetchProduct = (productId) => async dispatch => {
+export const fetchProduct = (productId, navigate) => async dispatch => {
   try {
     const res = await getProduct(productId);
     const { data: product } = res;
@@ -39,5 +39,6 @@ export const fetchProduct = (productId) => async dispatch => {
     dispatch({
       type: GET_PRODUCT_FAIL
     });
+    navigate("/");
   }
 };

@@ -54,21 +54,30 @@ const ProductsList = ( {
         <ProductListSearch onSearchChange={handleSearchChange}/>
       </div>
       <ul className="products-list_wrapper">
-      { displayedProducts?.length > 0 && displayedProducts.map((product, index) => {
-        return (
-          <li key={index} >
-             <Link to={`/product/${product.id}`}>
-                <ProductListItem 
-                  id={product.id}
-                  model={product.model}
-                  brand={product.brand}
-                  imgUrl={product.imgUrl}
-                  price={product.price}
-                />
-              </Link>
-          </li>
-        );
-      })}
+      { displayedProducts?.length > 0 
+        ? 
+          displayedProducts.map((product, index) => {
+          return (
+            <li key={index} >
+              <Link to={`/product/${product.id}`}>
+                  <ProductListItem 
+                    id={product.id}
+                    model={product.model}
+                    brand={product.brand}
+                    imgUrl={product.imgUrl}
+                    price={product.price}
+                  />
+                </Link>
+            </li>
+          );
+        })
+        :
+        (
+          <div className="products-list_empty">
+            <p>No tenemos níngun dispositivo con esa referencia :O</p>
+          </div>
+        )
+      }
  
       </ul>
     </section>

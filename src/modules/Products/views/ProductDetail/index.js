@@ -11,6 +11,8 @@ import Loader from "./../../../../components/Loader";
 import { GET_PRODUCT_SUCCESS } from "./../../redux/types";
 import { getStorageProductDetailList } from "./../../../../infra/settings";
 import store from "./../../../../redux/store";
+import { useNavigate } from "react-router-dom";
+
 
 const ProductsDetail = ({
   fetchProduct,
@@ -19,7 +21,7 @@ const ProductsDetail = ({
 }) => {
   const [loaderIsVisible, setLoaderIsVisible] = useState(true);
   const { productId } = useParams();
-
+  let navigate = useNavigate();
   useEffect(() => {
     if (!products.detail?.id) {
       const storageProductDetailList = getStorageProductDetailList();
@@ -30,7 +32,7 @@ const ProductsDetail = ({
           payload: productDetail[0]
         });      
       } else {
-        fetchProduct(productId); 
+        fetchProduct(productId, navigate); 
       }
     } else { 
       handleFormDataOnLoad(); 
