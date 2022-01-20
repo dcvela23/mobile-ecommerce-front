@@ -95,14 +95,13 @@ const ProductsDetail = ({
 
   return (
     <section className="section product-detail">
-      <ul className="grid products-list_wrapper">
         {
           products.detail && (
-            <div className="grid">
-              <div className="grid-col-6">
+            <div className="product-detail_wrapper">
+              <div>
                 <ProductDetailImage url={products.detail.imgUrl} alt={products.detail.model}/>
               </div>
-              <div className="grid-col-6">
+              <div>
                 <div className="product-detail_data">
                   <h1 className="mb-5">{products.detail?.model}</h1>
                   <div>
@@ -124,7 +123,6 @@ const ProductsDetail = ({
             </div>
           )
         }
-      </ul>
     </section>
   );
 };

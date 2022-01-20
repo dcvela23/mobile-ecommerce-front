@@ -2,6 +2,16 @@
 
 .product-detail {
   margin-bottom: 8rem;
+
+  &_wrapper {
+    display: grid;
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fill, minmax(33em, 1fr));
+    grid-gap: 20px;
+  }
+
   &_data {
     padding: 2rem;
     border: .083rem solid $color-neutral-gray-3;
@@ -27,6 +37,12 @@
       margin-bottom: 2rem;
       border-bottom: .083rem solid $color-neutral-gray-3;
       padding-bottom: 2rem;
+      display: grid;
+      width: 100%;
+      margin: 0 auto;
+      grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+      grid-gap: 15px;
+      padding: 0;
   
       &_label {
         color: $color-primary;

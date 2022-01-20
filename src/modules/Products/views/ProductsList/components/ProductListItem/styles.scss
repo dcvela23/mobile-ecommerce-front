@@ -6,6 +6,7 @@
   transition: all $transition-ease-in-out-cubic $transition-time-fast;
   border: .083rem solid $color-neutral-gray-3;
   border-radius: 2px;
+  height: 100%;
 
   &:hover {
     transform: translateY(-.25rem);

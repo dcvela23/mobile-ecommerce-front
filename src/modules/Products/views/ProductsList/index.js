@@ -47,10 +47,10 @@ const ProductsList = ( {
       <div className="mb-5 text-right">
         <ProductListSearch onSearchChange={handleSearchChange}/>
       </div>
-      <ul className="grid products-list_wrapper">
+      <ul className="products-list_wrapper">
       { displayedProducts?.length > 0 && displayedProducts.map((product, index) => {
         return (
-          <li key={index} className="grid-col-3">
+          <li key={index} >
              <Link to={`/product/${product.id}`}>
                 <ProductListItem 
                   id={product.id}

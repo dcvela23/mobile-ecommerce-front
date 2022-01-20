@@ -26,7 +26,7 @@ const ProductDetailActions = ({ productData, onCartButtonClick, onInputChange, c
     <div className="product-detail_actions grid">
       { Object.entries(optionsSelectors).map((entry, index) => {
         return (
-          <div key={index} className="mb-4 pr-4 grid-col-6">
+          <div key={index} className="mb-4 pr-4">
             <div className="mr-4 product-detail_selector">
               <label className="product-detail_selector_label">{entry[1].label}</label>
               <div className="product-detail_selector_input">
@@ -45,7 +45,7 @@ const ProductDetailActions = ({ productData, onCartButtonClick, onInputChange, c
           </div>
         );
       })}
-      <div className="grid-col-12 text-center product-detail_button">
+      <div className="text-center product-detail_button">
         <Button 
           variant="primary" 
           onClick={onCartButtonClick}
