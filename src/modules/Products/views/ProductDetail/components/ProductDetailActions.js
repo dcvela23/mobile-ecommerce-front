@@ -30,7 +30,8 @@ const ProductDetailActions = ({ productData, onCartButtonClick, onInputChange, c
             <div className="mr-4 product-detail_selector">
               <label className="product-detail_selector_label">{entry[1].label}</label>
               <div className="product-detail_selector_input">
-                <Select 
+                <Select
+                  isSearchable={false}
                   onChange={(e) => onInputChange({
                     key: entry[0],
                     value: e.value
