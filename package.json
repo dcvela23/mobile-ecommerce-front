@@ -23,13 +23,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "npx cypress open-ct",
     "lint": "node_modules/.bin/eslint --ext js src"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ],
     "rules": {
       "semi": 1,
@@ -40,6 +39,9 @@
           "allowAnonymousFunction": true
         }
       ]
+    },
+    "globals": {
+      "cy": true
     }
   },
   "browserslist": {
@@ -55,13 +57,18 @@
     ]
   },
   "devDependencies": {
+    "@cypress/react": "^5.12.1",
+    "@cypress/webpack-dev-server": "^1.8.0",
     "babel-eslint": "^10.1.0",
+    "concurrently": "^7.0.0",
+    "cypress": "^9.3.1",
     "eslint-config-react-app": "^7.0.0",
     "eslint-plugin-flowtype": "^8.0.3",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "html-webpack-plugin": "^4.5.2",
     "sass": "^1.48.0"
   }
 }

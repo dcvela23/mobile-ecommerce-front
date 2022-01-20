@@ -38,6 +38,7 @@ const ProductsDetail = ({
       handleFormDataOnLoad(); 
       setTimeout(() => { setLoaderIsVisible(false);}, 100);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchProduct, products, productId ]);
 
   // Cart

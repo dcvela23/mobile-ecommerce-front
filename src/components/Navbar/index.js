@@ -47,6 +47,7 @@ export const Navbar = ({ cart, products }) => {
   useEffect(() => {
     // runs on location, i.e. route, change
     handleBreadcrumbLinks(location);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location, products]);
 
   return (
