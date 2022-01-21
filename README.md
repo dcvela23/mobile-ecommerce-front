@@ -20,3 +20,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
+
+### `npm run test`
+
+It launchs cypress tests e2e. They are intended to cover user flows.
+
+### `npm run lint`
+
+It checks for any errors base on lint rules.
