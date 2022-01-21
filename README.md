@@ -7,6 +7,12 @@ In this repository, you will find our open source project code and its scripts f
 
 This README document will be updated as the application grows so we encourage you to participate and help us to make this app better.
 
+## Installation
+
+### `npm install`
+
+Install all necessary packages of the project. Then we can run any command from available scripts.
+
 ## Available Scripts
 
 In the project directory, you can run:
