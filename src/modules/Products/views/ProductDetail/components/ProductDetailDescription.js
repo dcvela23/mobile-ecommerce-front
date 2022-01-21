@@ -14,12 +14,54 @@ const ProductDetailDescription = ({ productData }) => {
     weight: checkValue(productData.weight)
   };
 
+  const setDescriptionLiteral = (descriptionKey) => {
+    let desccriptionLiteral;
+    switch(descriptionKey) {
+      case "brand":
+        desccriptionLiteral = "Marca";
+        break;
+      case "model":
+        desccriptionLiteral = "Modelo";
+        break;
+      case "price":
+        desccriptionLiteral = "Precio";
+        break;
+      case "cpu":
+        desccriptionLiteral = "CPU";
+        break;
+      case "ram":
+        desccriptionLiteral = "RAM";
+        break;
+      case "os":
+        desccriptionLiteral = "Sistema operativo";
+        break;
+      case "displayResolution":
+        desccriptionLiteral = "Resolución de pantalla";
+        break;
+      case "battery":
+        desccriptionLiteral = "Batería";
+        break;
+      case "primaryCamera":
+        desccriptionLiteral = "Cámara principal";
+        break;
+      case "secondaryCamera":
+        desccriptionLiteral = "Cámara secundaria";
+        break;
+      case "weight":
+        desccriptionLiteral=  "Peso";
+          break;
+      default:
+        desccriptionLiteral = "-";    
+      }
+    return desccriptionLiteral;
+  };
+
   return (
     <div className="product-detail_decription">
       { Object.entries(descriptionValues).map((value, index) => {
         return (
           <div key={index}>
-            <label className="product-detail_decription_label">{value[0]}</label>
+            <label className="product-detail_decription_label">{setDescriptionLiteral(value[0])}</label>
             <p className="product-detail_decription_text">{value[1]}</p>
           </div>
         );
